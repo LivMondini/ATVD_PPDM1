@@ -27,10 +27,10 @@ export default function App() {
   return (
     <ImageBackground
       source={{ uri: "https://img.freepik.com/fotos-gratis/formas-onduladas-em-camadas-abstratas-em-escala-de-cinza_779267-3587.jpg?semt=ais_hybrid&w=740&q=80" }}
-      style={styles.fundo}
+      style={styles.bottom}
     >
       <View style={styles.container}>
-        <Text style={styles.titulo}>LOGIN</Text>
+        <Text style={styles.title}>LOGIN</Text>
 
         <TextInput
           style={styles.input}
@@ -57,7 +57,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  fundo: {
+  bottom: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  titulo: {
+  title: {
     fontSize: 25,
     fontWeight: "bold", 
     marginBottom: 15, 
