@@ -1,20 +1,104 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ImageBackground,
+  StyleSheet,
+} from "react-native";
+
 
 export default function App() {
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+
+  function verificarLogin() {
+    if (usuario === "" || senha === "") {
+      alert("Preencha todos os campos");
+    } else if (usuario === "admin" && senha === "1234") {
+      alert("Login realizado com sucesso!");
+    } else {
+      alert("Usuário ou senha inválidos.");
+    }
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ImageBackground
+      source={{ uri: "https://img.freepik.com/fotos-gratis/formas-onduladas-em-camadas-abstratas-em-escala-de-cinza_779267-3587.jpg?semt=ais_hybrid&w=740&q=80" }}
+      style={styles.fundo}
+    >
+      <View style={styles.container}>
+        <Text style={styles.titulo}>LOGIN</Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Usuário"
+          onChangeText={setUsuario}
+          value={usuario}
+        />
+
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry={true}
+          onChangeText={setSenha}
+          value={senha}
+        />
+
+        <TouchableOpacity style={styles.botao} onPress={verificarLogin}>
+          <Text style={styles.textoBotao}>Entrar</Text>
+        </TouchableOpacity>
+
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  fundo: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  container: {
+    width: "50%",
+    opacity: 0.8,
+    backgroundColor: "grey",
+    padding: 25,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+
+  titulo: {
+    fontSize: 25,
+    fontWeight: "bold", 
+    marginBottom: 15, 
+    color: "#333",
+  },
+
+    input: {
+    width: "100%",
+    height: 45,
+    borderColor: "#999",
+    borderWidth: 1,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    backgroundColor: "#fff",
+  },
+
+  botao: {
+    width: "100%",
+    backgroundColor: "#000",
+    padding: 15,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  textoBotao: {
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });
