@@ -47,8 +47,8 @@ export default function App() {
           value={senha}
         />
 
-        <TouchableOpacity style={styles.botao} onPress={verificarLogin}>
-          <Text style={styles.textoBotao}>Entrar</Text>
+        <TouchableOpacity style={styles.button} onPress={verificarLogin}>
+          <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
 
       </View>
@@ -89,14 +89,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
-  botao: {
+  button: {
     width: "100%",
     backgroundColor: "#000",
     padding: 15,
     borderRadius: 5,
     marginTop: 10,
   },
-  textoBotao: {
+  textButton: {
     color: "#fff",
     textAlign: "center",
     fontWeight: "bold",
